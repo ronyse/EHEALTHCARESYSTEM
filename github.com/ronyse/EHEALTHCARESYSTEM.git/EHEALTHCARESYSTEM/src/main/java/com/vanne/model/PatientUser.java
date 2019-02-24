@@ -104,9 +104,23 @@ public class PatientUser extends Users {
 		this.appointmentPa = appointmentPa;
 	} 
 	
+	/********************many_to_many_relatioships_Patient_Doctor_Medecine_=Prescription***************/
 	
 	
-	
+	@OneToMany(mappedBy="patientp")
+	private Set<Prescription> prescriptionPa = new HashSet<Prescription>() ;
+
+
+	public Set<Prescription> getPrescriptionPa() {
+		return prescriptionPa;
+	}
+
+	public void setPrescriptionPa(Set<Prescription> prescriptionPa) {
+		this.prescriptionPa = prescriptionPa;
+	}
+
+
+    
 	
 	
 	

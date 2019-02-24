@@ -64,7 +64,23 @@ public class DoctorUser extends Users {
 	}
 	
 	
+/********************many_to_many_relatioships_Patient_Doctor_Medecine_=Prescription***************/
+	
+	
+	@OneToMany(mappedBy="doctorp")
+	private Set<Prescription> prescriptionDo = new HashSet<Prescription>() ;
 
+
+public Set<Prescription> getPrescriptionDo() {
+	return prescriptionDo;
+}
+
+public void setPrescriptionDo(Set<Prescription> prescriptionDo) {
+	this.prescriptionDo = prescriptionDo;
+}
+
+
+	
    
 	
 	
