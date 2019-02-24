@@ -11,7 +11,7 @@ import com.vanne.model.PatientUser;
 @Repository
 public interface PatientDAO extends CrudRepository<PatientUser, Long>  {
 	
- 
+	//vanne
 	
 	PatientUser findByEmail(String user_email); 
 	

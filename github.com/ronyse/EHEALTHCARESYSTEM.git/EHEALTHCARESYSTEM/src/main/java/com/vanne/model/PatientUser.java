@@ -1,5 +1,7 @@
 package com.vanne.model;
 
+//vanne
+
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -18,7 +20,7 @@ import javax.persistence.Table;
 @PrimaryKeyJoinColumn(name="patId")
 public class PatientUser extends Users {
 	
-	
+	//vanne
 	/******************variables*****************************************/
 	
 	@Column(name="marital_status", length=20, nullable=false)

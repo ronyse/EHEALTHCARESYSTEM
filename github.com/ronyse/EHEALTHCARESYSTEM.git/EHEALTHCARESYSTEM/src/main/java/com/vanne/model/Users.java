@@ -1,5 +1,7 @@
 package com.vanne.model;
 
+//vanne
+
 import java.util.Set;
 
 import javax.persistence.CascadeType;

@@ -8,6 +8,8 @@ import org.springframework.stereotype.Repository;
 
 import com.vanne.model.DoctorUser;
 
+//vanne
+
 @Repository
 public interface DoctorDAO extends CrudRepository<DoctorUser, Long> {  
 	

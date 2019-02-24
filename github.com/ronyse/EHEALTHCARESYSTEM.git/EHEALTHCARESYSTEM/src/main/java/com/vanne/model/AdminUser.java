@@ -10,7 +10,7 @@ import javax.persistence.Table;
 @PrimaryKeyJoinColumn(name="admId")
 public class AdminUser extends Users{
 	
-	
+	//vanne
 	/************************************variables**********************************/
 
 	@Column(name="companyName" , nullable=false)

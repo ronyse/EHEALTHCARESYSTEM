@@ -7,7 +7,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import com.vanne.model.AdminUser;
-
+//vanne
 
 @Repository
 public interface AdminUserDAO extends CrudRepository<AdminUser, Long>  {
