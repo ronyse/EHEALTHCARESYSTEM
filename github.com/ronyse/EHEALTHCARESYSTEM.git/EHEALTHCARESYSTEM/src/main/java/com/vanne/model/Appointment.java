@@ -17,7 +17,7 @@ import javax.persistence.Table;
 @Table(name="Appointment_table")
 public class Appointment {
 	
-	//vanne
+	
 	private long Appid ;
 		
 	private PatientUser patient ; 
