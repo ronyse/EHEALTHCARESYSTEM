@@ -60,7 +60,12 @@ public class Users {
 	@Column(name="email", length=55 , nullable=false)
 	private String email ; 
 	
+	@Column(name="active", nullable=true)
+	private int active ; 
 	
+	
+	
+
 	/********Hibernate Many-To-Many Mapping Using Annotations************/
 	
 	//***create a table "user_role" for the many to many relationship 
@@ -79,7 +84,8 @@ public class Users {
 
 	public Users(String firstname, String lastname, String gender, 
 			     String phonenumber, String address, String city,
-			     String state, String password, String email) {
+			     String state, String password, String email,int active) {
+		
 		super();
 		this.firstname = firstname;
 		this.lastname = lastname;
@@ -90,11 +96,13 @@ public class Users {
 		this.state = state;
 		this.password = password;
 		this.email = email;
+		this.active = active ; 
 	}
 
 
 	public Users(long userid, String firstname, String lastname, String gender, String phonenumber, String address,
-			String city, String state, String password, String email) {
+			String city, String state, String password, String email,int active) {
+		
 		super();
 		this.userid = userid;
 		this.firstname = firstname;
@@ -106,6 +114,7 @@ public class Users {
 		this.state = state;
 		this.password = password;
 		this.email = email;
+		this.active = active ; 
 	}
 
 	
@@ -218,7 +227,13 @@ public class Users {
 		this.roles = roles;
 	}
 	
-	
+	public int getActive() {
+		return active;
+	}
+
+	public void setActive(int active) {
+		this.active = active;
+	}
 		
 
 }

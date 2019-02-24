@@ -7,7 +7,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="Admin_user")
-@PrimaryKeyJoinColumn(name="userid")
+@PrimaryKeyJoinColumn(name="admId")
 public class AdminUser extends Users{
 	
 	
@@ -27,10 +27,15 @@ public class AdminUser extends Users{
 
 	public AdminUser( String firstname, String lastname, String gender, 
 			          String phonenumber, String address, String city,
-			          String state, String password, String email,String companyName) {
-		super();
+			          String state, String password, String email,int active,String companyName) {
+		
+		super(firstname, lastname, gender, 
+				   phonenumber, address, city,
+					  state, password, email,active);
 		this.companyName = companyName;
 	}
+	
+
 	
 
 	/******************************SETTERS-&&-GETTERS************************************/

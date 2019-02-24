@@ -19,7 +19,7 @@ public class Role {
 	private long roleid ; 
 	
 	@Column(name="role_name" , nullable=false)
-	private int roleName ; 
+	private String roleName ; 
 	
 
 }

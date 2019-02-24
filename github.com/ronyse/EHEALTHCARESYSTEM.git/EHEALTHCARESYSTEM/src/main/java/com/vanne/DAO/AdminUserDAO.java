@@ -6,17 +6,13 @@ import java.util.Optional;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.vanne.model.DoctorUser;
+import com.vanne.model.AdminUser;
+
 
 @Repository
-public interface DoctorDAO extends CrudRepository<DoctorUser, Long> {  
+public interface AdminUserDAO extends CrudRepository<AdminUser, Long>  {
 	
-	 
-	
-	DoctorUser findByEmail(String user_email); 
-	
-	
+
+	AdminUser findByEmail(String user_email); 
 	
 }
-
-

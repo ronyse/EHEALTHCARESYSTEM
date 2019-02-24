@@ -1,0 +1,23 @@
+package com.vanne.service;
+
+import java.util.List;
+import java.util.Optional;
+
+
+import com.vanne.model.AdminUser;
+
+
+public interface AdminService {
+	
+	void save(AdminUser admin); 
+	AdminUser findByEmail(String ad_email); 
+	
+	
+	AdminUser  create(AdminUser admin);                    
+	Optional<AdminUser> delete(long id);                
+	List<AdminUser> findall();                        
+	Optional<AdminUser> findById(long id);             
+	
+	AdminUser update(AdminUser admin);  
+
+}
