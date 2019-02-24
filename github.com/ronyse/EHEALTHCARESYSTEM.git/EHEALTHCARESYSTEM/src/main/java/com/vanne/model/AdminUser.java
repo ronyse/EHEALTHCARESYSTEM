@@ -13,7 +13,6 @@ public class AdminUser extends Users{
 	
 	/************************************variables**********************************/
 
-	@Column(name="companyName" , nullable=false)
 	private String companyName ; 
 	
 	
@@ -23,8 +22,6 @@ public class AdminUser extends Users{
 		
 	}
 	
-	
-
 	public AdminUser( String firstname, String lastname, String gender, 
 			          String phonenumber, String address, String city,
 			          String state, String password, String email,int active,String companyName) {
@@ -36,14 +33,12 @@ public class AdminUser extends Users{
 	}
 	
 
-	
-
 	/******************************SETTERS-&&-GETTERS************************************/
-	   
+	
+	@Column(name="companyName" , nullable=false)
 	public String getCompanyName() {
 		return companyName;
 	}
-
 	public void setCompanyName(String companyName) {
 		this.companyName = companyName;
 	}

@@ -46,17 +46,11 @@ public class Appointment {
 	/********************many_to_many_relatioships_Patient_Doctor_Bill_=Appointment***************/
 	
 	
-	
-	
-	
-	
-	
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="patId")
 	public PatientUser getPatient() {
 		return patient;
 	}
-
 	public void setPatient(PatientUser patient) {
 		this.patient = patient;
 	}
@@ -66,29 +60,21 @@ public class Appointment {
 	public DoctorUser getDoctor() {
 		return doctor;
 	}
-
-	
-
-	
-
 	public void setDoctor(DoctorUser doctor) {
 		this.doctor = doctor;
 	}
-	
-	
-	
+		
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="billid")
 	public Bill getBill() {
 		return bill;
 	}
-
 	public void setBill(Bill bill) {
 		this.bill = bill;
 	}
 	
 	
-	/*******************************************************************************************/
+	/***************************************GETTERS&SETTERS*********************************/
 	
 	@Column(name= "apt_date", nullable=false)
 	public Date getDate() {

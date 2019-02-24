@@ -19,23 +19,27 @@ public class DoctorUser extends Users {
 	
 	/***************************************variable***************************/
 	
-	@Column(name="title", nullable = false)
+	
 	private String title; 
 	
    /********************many_to_many_relatioships_Patient_Doctor_Bill_=Appointment***************/
-	
-	@OneToMany(mappedBy="doctor")
-	private Set<Appointment> appointmentDo = new HashSet<Appointment>() ;
-	
-	    
-		public Set<Appointment> getAppointmentDo() {
-			return appointmentDo;
-		}
 
-		public void setAppointmentDo(Set<Appointment> appointmentDo) {
-			this.appointmentDo = appointmentDo;
-		} 
+	    private Set<Appointment> appointmentDo = new HashSet<Appointment>() ;
+	    
+	    
+	/********************many_to_many_relatioships_Patient_Doctor_Medecine_=Prescription***************/
+			
+		private Set<Prescription> prescriptionDo = new HashSet<Prescription>() ;
+	
 		
+	/********************many_to_many_relatioships_Patient_Doctor_disease_=Diagnosis***************/
+
+		private Set<Diagnosis> diagnosisDo = new HashSet<Diagnosis>() ;
+   
+	/********************many_to_many_relatioships_Doctor_disease_=Specialisation***************/
+
+	    private Set<Specialisation> speDo = new HashSet<Specialisation>() ;
+	
 	
 	
 	/****************CONSTRUCTOR***********************************************/
@@ -55,6 +59,7 @@ public class DoctorUser extends Users {
 	
 	/*********************SETTER-&&-GETTER***************************************/
 
+	@Column(name="title", nullable = false)
 	public String getTitle() {
 		return title;
 	}
@@ -66,24 +71,50 @@ public class DoctorUser extends Users {
 	
 /********************many_to_many_relatioships_Patient_Doctor_Medecine_=Prescription***************/
 	
-	
 	@OneToMany(mappedBy="doctorp")
-	private Set<Prescription> prescriptionDo = new HashSet<Prescription>() ;
+    public Set<Prescription> getPrescriptionDo() {
+	     return prescriptionDo;
+   }
 
-
-public Set<Prescription> getPrescriptionDo() {
-	return prescriptionDo;
-}
-
-public void setPrescriptionDo(Set<Prescription> prescriptionDo) {
+   public void setPrescriptionDo(Set<Prescription> prescriptionDo) {
 	this.prescriptionDo = prescriptionDo;
-}
+  }
 
 
-	
+/********************many_to_many_relatioships_Patient_Doctor_disease_=Diagnosis***************/
+
+   @OneToMany(mappedBy="doctord")
+   public Set<Diagnosis> getDiagnosisDo() {
+	 return diagnosisDo;
+   }
+
+   public void setDiagnosisDo(Set<Diagnosis> diagnosisDo) {
+	   this.diagnosisDo = diagnosisDo;
+   }
+
    
-	
-	
+/********************many_to_many_relatioships_Doctor_disease_=Specialisation***************/
+
+   @OneToMany(mappedBy="doctorsp")
+   public Set<Specialisation> getSpeDo() {
+	 return speDo;
+   }
+
+   public void setSpeDo(Set<Specialisation> speDo) {
+	  this.speDo = speDo;
+   }
+   
+
+/********************many_to_many_relatioships_Patient_Doctor_Bill_=Appointment***************/
+
+     @OneToMany(mappedBy="doctor")
+     public Set<Appointment> getAppointmentDo() {
+	   return appointmentDo;
+     }
+
+    public void setAppointmentDo(Set<Appointment> appointmentDo) {
+	   this.appointmentDo = appointmentDo;
+    } 	
 	
 
 }

@@ -37,7 +37,8 @@ public class UsersServiceImpl implements UsersService {
 	    user.setActive(0);
 	    
 	    Role userRole = roledao.findByRoleName("UNDEFINED"); 
-	    user.setRoles(new HashSet<Role>( Arrays.asList(userRole)));
+	  user.setRoles(new HashSet<Role>( Arrays.asList(userRole)));
+	    
 	    userdao.save(user);      		
 	}
 	

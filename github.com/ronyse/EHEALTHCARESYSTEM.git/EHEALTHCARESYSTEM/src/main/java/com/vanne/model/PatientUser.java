@@ -20,33 +20,33 @@ import javax.persistence.Table;
 @PrimaryKeyJoinColumn(name="patId")
 public class PatientUser extends Users {
 	
-	//vanne
+	
 	/******************variables*****************************************/
 	
-	@Column(name="marital_status", length=20, nullable=false)
+	
 	private String maritalstatus;
 	
-	@Column(name="dob" , nullable=false)
 	private Date dob ; 
-	
 	
 	/********************one_To_one_RelationShip_with_Patient_Bill*************************/
 	
-	
-	@OneToOne(cascade= CascadeType.ALL)	
-	@JoinColumn(name = "Bill_id" , referencedColumnName = "billid")
 	private Bill patientBill ; 
 	
+  /********************many_to_many_relatioships_Patient_Doctor_Bill_=Appointment***************/
 	
-	public Bill getPatientBill() {
-		return patientBill;
-	}
-
-	public void setPatientBill(Bill patientBill) {
-		this.patientBill = patientBill;
-	}
-
-	/******************CONSTRUCTORS**************************************/
+	private Set<Appointment> appointmentPa = new HashSet<Appointment>() ;
+	
+  /********************many_to_many_relatioships_Patient_Doctor_Medecine_=Prescription***************/
+	
+    private Set<Prescription> prescriptionPa = new HashSet<Prescription>() ;	
+    
+ /********************many_to_many_relatioships_Patient_Doctor_disease_=Diagnosis***************/
+	
+	private Set<Diagnosis> diagnosisPa = new HashSet<Diagnosis>() ;  
+    
+	
+	
+  /******************CONSTRUCTORS**************************************/
 	
 	public PatientUser() {
 		
@@ -72,19 +72,18 @@ public class PatientUser extends Users {
 	
 	/****************SETTERS&&GETTERS************************************/
 	
-
+	@Column(name="marital_status", length=20, nullable=false)
 	public String getMaritalstatus() {
 		return maritalstatus;
 	}
-
 	public void setMaritalstatus(String maritalstatus) {
 		this.maritalstatus = maritalstatus;
 	}
 
+	@Column(name="dob" , nullable=false)
 	public Date getDob() {
 		return dob;
 	}
-
 	public void setDob(Date dob) {
 		this.dob = dob;
 	}
@@ -92,37 +91,46 @@ public class PatientUser extends Users {
 	/********************many_to_many_relatioships_Patient_Doctor_Bill_=Appointment***************/
 	
 	@OneToMany(mappedBy="patient")
-	private Set<Appointment> appointmentPa = new HashSet<Appointment>() ;
-
-
-    
 	public Set<Appointment> getAppointmentPa() {
 		return appointmentPa;
 	}
-
 	public void setAppointmentPa(Set<Appointment> appointmentPa) {
 		this.appointmentPa = appointmentPa;
 	} 
 	
-	/********************many_to_many_relatioships_Patient_Doctor_Medecine_=Prescription***************/
-	
-	
+   /********************many_to_many_relatioships_Patient_Doctor_Medecine_=Prescription***************/
+		
 	@OneToMany(mappedBy="patientp")
-	private Set<Prescription> prescriptionPa = new HashSet<Prescription>() ;
-
-
 	public Set<Prescription> getPrescriptionPa() {
 		return prescriptionPa;
 	}
-
 	public void setPrescriptionPa(Set<Prescription> prescriptionPa) {
 		this.prescriptionPa = prescriptionPa;
 	}
 
 
-    
+	/********************many_to_many_relatioships_Patient_Doctor_disease_=Diagnosis***************/
 	
+	@OneToMany(mappedBy="patientd")
+	public Set<Diagnosis> getDiagnosisPa() {
+		return diagnosisPa;
+	}
+
+	public void setDiagnosisPa(Set<Diagnosis> diagnosisPa) {
+		this.diagnosisPa = diagnosisPa;
+	}
 	
+   /********************one_To_one_RelationShip_with_Patient_Bill*************************/
+	
+	@OneToOne(cascade= CascadeType.ALL)	
+	@JoinColumn(name = "Bill_id" , referencedColumnName = "billid")
+	public Bill getPatientBill() {
+		return patientBill;
+	}
+
+	public void setPatientBill(Bill patientBill) {
+		this.patientBill = patientBill;
+	}
 	
 	
 
