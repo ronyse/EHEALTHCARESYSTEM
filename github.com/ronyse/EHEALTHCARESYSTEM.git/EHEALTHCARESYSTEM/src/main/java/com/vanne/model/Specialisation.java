@@ -1,13 +1,10 @@
 package com.vanne.model;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -16,43 +13,74 @@ import javax.persistence.Table;
 @Table(name="Specialisation_table")
 public class Specialisation {
 
-	   private Long Speid ; 
+	   private long speid ; 
 	   
-	   private Disease disease ; 
-	   private DoctorUser doctorsp ;
-       
+	   private long disease ; 
+	   private long doctorsp ; 
+	   
 	   private String experience ; 
 	   private String degree ;
 	   
-	   
-	   
+	   public Specialisation() {
+		   
+	   }
+	
+	
+
+
+
+
+	public Specialisation(long disease, long doctorsp, String experience, String degree) {
+		super();
+		this.disease = disease;
+		this.doctorsp = doctorsp;
+		this.experience = experience;
+		this.degree = degree;
+	}
+
+
+	public Specialisation(long speid, long disease, long doctorsp, String experience, String degree) {
+		super();
+		this.speid = speid;
+		this.disease = disease;
+		this.doctorsp = doctorsp;
+		this.experience = experience;
+		this.degree = degree;
+	}
+
+
+
+
+
+
 	@Id                                                                                    
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator="specialisation_generator")
 	@SequenceGenerator(name="specialisation_generator",sequenceName = "spe_seq", allocationSize=15)
-	@Column(name = "speId", updatable = false, nullable = false)    
-	public Long getSpeid() {
-		return Speid;
+	@Column(name = "speid", updatable = false, nullable = false)    
+	public long getSpeid() {
+		return speid;
 	}
-	public void setSpeid(Long speid) {
-		Speid = speid;
+
+	public void setSpeid(long speid) {
+		this.speid = speid;
 	}
 	
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name="disId")
-	public Disease getDisease() {
+	
+	@Column(name = "Disease_ID")
+	public long getDisease() {
 		return disease;
 	}
 	
-	public void setDisease(Disease disease) {
+
+	public void setDisease(long disease) {
 		this.disease = disease;
 	}
 	
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name="dotId")
-	public DoctorUser getDoctorsp() {
+	@Column(name = "Doctor_ID")
+	public long getDoctorsp() {
 		return doctorsp;
 	}
-	public void setDoctorsp(DoctorUser doctorsp) {
+	public void setDoctorsp(long doctorsp) {
 		this.doctorsp = doctorsp;
 	}
 	
@@ -70,8 +98,19 @@ public class Specialisation {
 	}
 	public void setDegree(String degree) {
 		this.degree = degree;
-	} 
+	}
+
+	
+	
+	
+	
 	   
 	   
-	   
+
+	
+	
+	
+	
+	
+	
 }

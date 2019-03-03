@@ -35,7 +35,7 @@ public class AdminUser extends Users{
 
 	/******************************SETTERS-&&-GETTERS************************************/
 	
-	@Column(name="companyName" , nullable=false)
+	@Column(name="companyName" , nullable=true)
 	public String getCompanyName() {
 		return companyName;
 	}

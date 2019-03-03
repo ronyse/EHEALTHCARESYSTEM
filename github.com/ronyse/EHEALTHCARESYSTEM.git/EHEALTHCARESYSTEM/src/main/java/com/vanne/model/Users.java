@@ -2,11 +2,15 @@ package com.vanne.model;
 
 
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.UUID;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.Embeddable;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,6 +24,7 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.JoinColumn;
 
+//@Inheritance(strategy=InheritanceType.JOINED)
 
 @Entity 
 @Table(name="Users_table")
@@ -31,8 +36,8 @@ public class Users {
 	
 	//***create a sequence var+number for primary key 
 	
-	        
-	private  long  userid ; 	
+	 //test       
+	private long  userid ; 	// UUID
 	
 	private String firstname ; 
 	
@@ -115,7 +120,8 @@ public class Users {
 
 	
 	/************SETTERS-&&-GETTERS*************************/
-
+	//@GeneratedValue(strategy = GenerationType.SEQUENCE, generator="user_generator")
+	//@SequenceGenerator(name="user_generator",sequenceName = "user_seq", allocationSize=15)
 	
 	@Id                                                                                    
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator="user_generator")
@@ -144,7 +150,7 @@ public class Users {
 		this.lastname = lastname;
 	}
 
-	@Column(name="gender", length=10, nullable=false)
+	@Column(name="gender", nullable=false)
 	public String getGender() {
 		return gender;
 	}
@@ -160,7 +166,7 @@ public class Users {
 		this.phonenumber = phonenumber;
 	}
 
-	@Column(name="address", length=60 , nullable=false)
+	@Column(name="address", nullable=false)
 	public String getAddress() {
 		return address;
 	}
@@ -168,7 +174,7 @@ public class Users {
 		this.address = address;
 	}
 
-	@Column(name="city", length=36 , nullable=false)
+	@Column(name="city",  nullable=false)
 	public String getCity() {
 		return city;
 	}
@@ -204,7 +210,7 @@ public class Users {
 	
 	
 	
-	@Column(name="active", nullable=true)
+	@Column(name="active", nullable=false)
 	public int getActive() {
 		return active;
 	}

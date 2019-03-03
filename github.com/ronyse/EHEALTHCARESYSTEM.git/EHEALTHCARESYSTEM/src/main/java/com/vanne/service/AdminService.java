@@ -12,7 +12,7 @@ import com.vanne.model.AdminUser;
 
 public interface AdminService {
 	
-	void save(AdminUser admin); 
+	//svoid save(AdminUser admin); 
 	AdminUser findByEmail(String ad_email); 
 	
 	

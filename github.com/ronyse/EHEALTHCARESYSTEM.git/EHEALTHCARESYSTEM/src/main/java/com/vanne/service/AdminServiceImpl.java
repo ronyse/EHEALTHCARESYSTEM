@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.vanne.DAO.AdminUserDAO;
@@ -26,21 +26,21 @@ public class AdminServiceImpl implements AdminService {
 	@Autowired 
 	private RoleDAO roledao ; 
 	
-	@Autowired 
-	private BCryptPasswordEncoder bCryptPasswordEncoder ; 
+	/*
+	 * @Autowired private BCryptPasswordEncoder bCryptPasswordEncoder ;
+	 */ 
 	
 		
 
-	@Override
-	public void save(AdminUser admin) {
-		
-		admin.setPassword(bCryptPasswordEncoder.encode(admin.getPassword()));
-		admin.setActive(3);
-		
-		Role userRole = roledao.findByRoleName("ADMIN");
-		admin.setRoles(new HashSet<Role>(Arrays.asList(userRole)));
-       	admindao.save(admin); 
-	}
+	/*
+	 * @Override public void save(AdminUser admin) {
+	 * 
+	 * admin.setPassword(bCryptPasswordEncoder.encode(admin.getPassword()));
+	 * admin.setActive(3);
+	 * 
+	 * Role userRole = roledao.findByRoleName("ADMIN"); admin.setRoles(new
+	 * HashSet<Role>(Arrays.asList(userRole))); admindao.save(admin); }
+	 */
 
 	@Override
 	public AdminUser findByEmail(String ad_email) {

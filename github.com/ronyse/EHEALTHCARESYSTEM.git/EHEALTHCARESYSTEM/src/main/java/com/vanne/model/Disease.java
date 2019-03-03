@@ -1,7 +1,9 @@
 package com.vanne.model;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.UUID;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,11 +19,16 @@ import javax.persistence.Table;
 public class Disease {
 	
 	
+	/**
+	 * 
+	 */
+	
+
 	@Id                                                                                    
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator="disease_generator")
 	@SequenceGenerator(name="disease_generator",sequenceName = "dis_seq", allocationSize=15)
 	@Column(name = "disId", updatable = false, nullable = false)     
-	private Long disid  ;
+	private long disid  ; //UUID
 	
 	@Column(name="disease_name" , nullable=false)
 	private String name ;
@@ -31,6 +38,7 @@ public class Disease {
 	
 	
 	
+
 	/********************many_to_many_relatioships_Patient_Doctor_disease_=Diagnosis***************/
 
 
@@ -47,6 +55,7 @@ public class Disease {
 	
 	/******************SETTER&GETTERS******************************************************/
 
+	
 	public Long getDisid() {
 		return disid;
 	}
@@ -54,6 +63,7 @@ public class Disease {
 	public void setDisid(Long disid) {
 		this.disid = disid;
 	}
+	
 
 	public String getName() {
 		return name;
@@ -73,34 +83,36 @@ public class Disease {
 	
 	/**********************CONSTRUCTORS******************************/
 	
-	public Disease() {}
+	public Disease() {
+		super(); 
+	}    
 
-	public Disease(String name, String symptom) {
-		super();
-		this.name = name;
-		this.symptom = symptom;
-	}
-
+	/*
 	public Disease(Long disid, String name, String symptom) {
 		super();
 		this.disid = disid;
 		this.name = name;
 		this.symptom = symptom;
 	}
-
+    */
 	
 	/********************many_to_many_relatioships_Doctor_disease_=Specialisation***************/
 
+	 public void addSpeciality(Specialisation spe) {
+		   
+		   this.speDo.add(spe); 
+		   
+	   }
 
 	@OneToMany(mappedBy="disease")
-	private Set<Specialisation> speDi = new HashSet<Specialisation>() ;
+	private Set<Specialisation> speDo = new HashSet<Specialisation>() ;
 
 	public Set<Specialisation> getSpeDi() {
-		return speDi;
+		return speDo;
 	}
 
 	public void setSpeDi(Set<Specialisation> speDi) {
-		this.speDi = speDi;
+		this.speDo = speDi;
 	}
 	
 	

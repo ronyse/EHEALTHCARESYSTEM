@@ -7,16 +7,29 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
+//@PrimaryKeyJoinColumn(name="dotId")
+//extends Users
 
 @Entity
 @Table(name="Doctor_user")
 @PrimaryKeyJoinColumn(name="dotId")
-public class DoctorUser extends Users {
+public class DoctorUser  extends Users
+{
 	
 	
+	
+	
+	
+
 	/***************************************variable***************************/
 	
 	
@@ -49,15 +62,24 @@ public class DoctorUser extends Users {
 	}
 
 	public DoctorUser(String firstname, String lastname, String gender, 
-			          String phonenumber, String address, String city,
-			          String state, String password, String email,int active, String title) {
-		super(firstname, lastname, gender, 
-				   phonenumber, address, city,
-					  state, password, email,active);
+		     String phonenumber, String address, String city,
+		     String state, String password, String email,int active,String title) {
+		super(firstname,lastname,gender, 
+			     phonenumber, address, city,
+			     state, password, email, active);
+		
 		this.title = title;
 	}
-	
+
+
+
+
+
+
 	/*********************SETTER-&&-GETTER***************************************/
+	
+	
+	
 
 	@Column(name="title", nullable = false)
 	public String getTitle() {
@@ -95,6 +117,15 @@ public class DoctorUser extends Users {
    
 /********************many_to_many_relatioships_Doctor_disease_=Specialisation***************/
 
+  
+   
+   public void addSpeciality(Specialisation spe) {
+	   
+	   this.speDo.add(spe); 
+	   
+   }
+   
+   
    @OneToMany(mappedBy="doctorsp")
    public Set<Specialisation> getSpeDo() {
 	 return speDo;

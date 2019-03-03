@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -26,21 +26,20 @@ public class UsersServiceImpl implements UsersService {
 	@Autowired 
 	private RoleDAO roledao ; 
 	
-	@Autowired 
-	private BCryptPasswordEncoder bCryptPasswordEncoder ; 
-	
-	   
-	@Override
-	public void save(Users user) {
-				
-		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-	    user.setActive(0);
-	    
-	    Role userRole = roledao.findByRoleName("UNDEFINED"); 
-	  user.setRoles(new HashSet<Role>( Arrays.asList(userRole)));
-	    
-	    userdao.save(user);      		
-	}
+	/*
+	 * @Autowired private BCryptPasswordEncoder bCryptPasswordEncoder ;
+	 * 
+	 * 
+	 * @Override public void save(Users user) {
+	 * 
+	 * user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+	 * user.setActive(0);
+	 * 
+	 * Role userRole = roledao.findByRoleName("UNDEFINED"); user.setRoles(new
+	 * HashSet<Role>( Arrays.asList(userRole)));
+	 * 
+	 * userdao.save(user); }
+	 */
 	
 
 	@Override

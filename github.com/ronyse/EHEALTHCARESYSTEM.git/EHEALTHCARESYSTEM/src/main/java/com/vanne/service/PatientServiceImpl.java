@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.vanne.DAO.PatientDAO;
@@ -26,23 +26,22 @@ public class PatientServiceImpl implements PatientService {
 	@Autowired
 	private RoleDAO roledao ; 
 	
-	@Autowired
-	private BCryptPasswordEncoder bCryptPasswordEncoder ;
-	
-	
-	
-	
-	@Override
-	public void save(PatientUser patient) {
-		
-		patient.setPassword(bCryptPasswordEncoder.encode(patient.getPassword()));
-		patient.setActive(1);
-		
-		Role userRole = roledao.findByRoleName("PATIENT");
-		patient.setRoles(new HashSet<Role>(Arrays.asList(userRole)));
-       	patientdao.save(patient); 
-		
-	}
+	/*
+	 * @Autowired private BCryptPasswordEncoder bCryptPasswordEncoder ;
+	 * 
+	 * 
+	 * 
+	 * 
+	 * @Override public void save(PatientUser patient) {
+	 * 
+	 * patient.setPassword(bCryptPasswordEncoder.encode(patient.getPassword()));
+	 * patient.setActive(1);
+	 * 
+	 * Role userRole = roledao.findByRoleName("PATIENT"); patient.setRoles(new
+	 * HashSet<Role>(Arrays.asList(userRole))); patientdao.save(patient);
+	 * 
+	 * }
+	 */
 
 	@Override
 	public PatientUser findByEmail(String user_email) {
@@ -86,7 +85,7 @@ public class PatientServiceImpl implements PatientService {
 	}
 
 	@Override
-	public Users update(PatientUser patient) {
+	public PatientUser update(PatientUser patient) {
 		
 		return patientdao.save(patient);
 	}

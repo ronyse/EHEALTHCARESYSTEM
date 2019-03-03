@@ -12,16 +12,22 @@ import com.vanne.model.Users;
 public interface DoctorService  {
 	
 	
-	void save(DoctorUser doctor); 
+	//void save(DoctorUser doctor); 
 	DoctorUser findByEmail(String user_email); 
 	
 	
-	DoctorUser  create(DoctorUser doctor);                    
-	Optional<DoctorUser> delete(long id);                
-	List<DoctorUser> findAll();                        
-	Optional<DoctorUser> findById(long id);             
+     DoctorUser  create(DoctorUser doctor);  
+	
+	Optional<DoctorUser> delete(long id);
+	  
+	
+	
+	List<DoctorUser> findAll();
+	
+	Optional<DoctorUser> findById(long id); 
 	
 	DoctorUser update(DoctorUser doctor);  
+	
 	
 	
 

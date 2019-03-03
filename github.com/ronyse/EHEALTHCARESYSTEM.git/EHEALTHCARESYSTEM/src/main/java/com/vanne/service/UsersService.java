@@ -21,7 +21,7 @@ public interface UsersService {
 	
 	/****METHOD_FOR_LOGIN_*************************/
 	
-	void save(Users user);
+	//void save(Users user);
 	Users findByEmail(String user_email); 
 	
 	

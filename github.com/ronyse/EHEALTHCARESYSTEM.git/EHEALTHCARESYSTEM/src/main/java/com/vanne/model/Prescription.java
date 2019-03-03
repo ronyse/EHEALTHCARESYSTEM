@@ -26,6 +26,9 @@ public class Prescription {
 	
 	
 	private Date date ;
+	private String dosage ; 
+	
+	
 
     
 	@Id                                                                                    
@@ -71,10 +74,16 @@ public class Prescription {
 	public Date getDate() {
 		return date;
 	}
-
-
 	public void setDate(Date date) {
 		this.date = date;
+	}
+	
+	@Column(name= "dosage", nullable=false)
+	public String getDosage() {
+		return dosage;
+	}
+	public void setDosage(String dosage) {
+		this.dosage = dosage;
 	}
 	
 	

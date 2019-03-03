@@ -72,7 +72,7 @@ public class PatientUser extends Users {
 	
 	/****************SETTERS&&GETTERS************************************/
 	
-	@Column(name="marital_status", length=20, nullable=false)
+	@Column(name="marital_status", length=20, nullable=true)
 	public String getMaritalstatus() {
 		return maritalstatus;
 	}
@@ -80,7 +80,7 @@ public class PatientUser extends Users {
 		this.maritalstatus = maritalstatus;
 	}
 
-	@Column(name="dob" , nullable=false)
+	@Column(name="dob" , nullable=true)
 	public Date getDob() {
 		return dob;
 	}

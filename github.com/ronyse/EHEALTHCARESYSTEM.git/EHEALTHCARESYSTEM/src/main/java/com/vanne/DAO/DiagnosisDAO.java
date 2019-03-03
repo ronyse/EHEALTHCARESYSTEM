@@ -1,17 +1,11 @@
 package com.vanne.DAO;
 
-
-
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.vanne.model.Users;
+import com.vanne.model.Diagnosis;
 
 @Repository
-public interface UsersDAO extends CrudRepository<Users, Long> {
-	
-	
-	Users findByEmail(String user_email); 
-	
-	
+public interface DiagnosisDAO extends  CrudRepository<Diagnosis, Long> {
+
 }
