@@ -2,6 +2,7 @@ package com.vanne.model;
 
 
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -26,7 +27,7 @@ public class PatientUser extends Users {
 	
 	private String maritalstatus;
 	
-	private Date dob ; 
+	private LocalDate dob ; 
 	
 	/********************one_To_one_RelationShip_with_Patient_Bill*************************/
 	
@@ -54,12 +55,12 @@ public class PatientUser extends Users {
 
 	public PatientUser(String firstname, String lastname, String gender, 
 			           String phonenumber, String address, String city,
-			           String state, String password, String email,int active,  
-			           String maritalstatus, Date dob,Bill patientBill) {
+			           String state,String username, String password, String email,  
+			           String maritalstatus, LocalDate dob,Bill patientBill) {
 		
 		super(firstname, lastname, gender, 
 			   phonenumber, address, city,
-				  state, password, email,active);
+				  state, username, password, email);
 		
 		this.maritalstatus = maritalstatus;
 		this.dob = dob;
@@ -68,6 +69,23 @@ public class PatientUser extends Users {
 		
 		
 	}
+	
+	public PatientUser(String firstname, String lastname, String gender, 
+	           String phonenumber, String address, String city,
+	           String state,String username, String password, String email,  
+	           String maritalstatus, LocalDate dob) {
+
+super(firstname, lastname, gender, 
+	   phonenumber, address, city,
+		  state, username, password, email);
+
+this.maritalstatus = maritalstatus;
+this.dob = dob;
+
+//this.patientBill = patientBill ; 
+
+
+}
 	
 	
 	/****************SETTERS&&GETTERS************************************/
@@ -81,10 +99,10 @@ public class PatientUser extends Users {
 	}
 
 	@Column(name="dob" , nullable=true)
-	public Date getDob() {
+	public LocalDate getDob() {
 		return dob;
 	}
-	public void setDob(Date dob) {
+	public void setDob(LocalDate dob) {
 		this.dob = dob;
 	}
 

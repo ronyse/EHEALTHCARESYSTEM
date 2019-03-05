@@ -59,6 +59,8 @@ public class Users {
 	
 	private String state ;  
 	
+	private String username ; 
+	
 	
 	private String password ;
 	
@@ -66,15 +68,15 @@ public class Users {
 	private String email ; 
 	
 	
-	private int active ; 
+
 	
 /********Hibernate Many-To-Many *********************************************************/
 	
 	//***create a table "user_role" for the many to many relationship 
 	//with column userid->Users and roleid->Role 
 	
-	private Set<Role> roles = new HashSet<Role>(); 
-	
+	 private Set<Role> roles = new HashSet<Role>(); 
+	//private List<Role> roles = new HashSet<Role>();
 	
 	
 	/*****************CONSTRUCTORS**************************/
@@ -85,7 +87,7 @@ public class Users {
 
 	public Users(String firstname, String lastname, String gender, 
 			     String phonenumber, String address, String city,
-			     String state, String password, String email,int active) {
+			     String state,String username, String password, String email) {
 		
 		super();
 		this.firstname = firstname;
@@ -95,14 +97,15 @@ public class Users {
 		this.address = address;
 		this.city = city;
 		this.state = state;
+		this.username = username ; 
 		this.password = password;
 		this.email = email;
-		this.active = active ; 
+		
 	}
 
 
 	public Users(long userid, String firstname, String lastname, String gender, String phonenumber, String address,
-			String city, String state, String password, String email,int active) {
+			String city, String state,String username, String password, String email) {
 		
 		super();
 		this.userid = userid;
@@ -113,9 +116,10 @@ public class Users {
 		this.address = address;
 		this.city = city;
 		this.state = state;
+		this.username = username ;
 		this.password = password;
 		this.email = email;
-		this.active = active ; 
+	
 	}
 
 	
@@ -210,13 +214,7 @@ public class Users {
 	
 	
 	
-	@Column(name="active", nullable=false)
-	public int getActive() {
-		return active;
-	}
-	public void setActive(int active) {
-		this.active = active;
-	}
+	
 	
 /********Hibernate Many-To-Many *********************************************************/
 	
@@ -233,6 +231,14 @@ public class Users {
 
 	public void setRoles(Set<Role> roles) {
 		this.roles = roles;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
 	}
 	
 	

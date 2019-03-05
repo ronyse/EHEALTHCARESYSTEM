@@ -28,7 +28,7 @@ public interface DoctorService  {
 	
 	DoctorUser update(DoctorUser doctor);  
 	
-	
+	Optional<DoctorUser> findByUsername(String username);
 	
 
 }

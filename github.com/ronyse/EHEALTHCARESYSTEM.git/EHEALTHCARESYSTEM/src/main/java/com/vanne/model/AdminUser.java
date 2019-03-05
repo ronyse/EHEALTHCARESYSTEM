@@ -24,11 +24,11 @@ public class AdminUser extends Users{
 	
 	public AdminUser( String firstname, String lastname, String gender, 
 			          String phonenumber, String address, String city,
-			          String state, String password, String email,int active,String companyName) {
+			          String state,String username, String password, String email,String companyName) {
 		
 		super(firstname, lastname, gender, 
 				   phonenumber, address, city,
-					  state, password, email,active);
+					  state, username, password, email);
 		this.companyName = companyName;
 	}
 	

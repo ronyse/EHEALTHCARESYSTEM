@@ -89,6 +89,12 @@ public class PatientServiceImpl implements PatientService {
 		
 		return patientdao.save(patient);
 	}
+
+	@Override
+	public Optional<PatientUser> findByUsername(String username) {
+		// TODO Auto-generated method stub
+		return patientdao.findByUsername(username);
+	}
 	
 	/********************************************************************************/
 	

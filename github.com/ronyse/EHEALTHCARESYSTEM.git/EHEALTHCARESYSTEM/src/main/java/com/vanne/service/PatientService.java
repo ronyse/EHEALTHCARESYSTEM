@@ -27,6 +27,6 @@ public interface PatientService  {
 	
 	PatientUser update(PatientUser patient);  
 	
-	
+	Optional<PatientUser> findByUsername(String username);
 	
 }

@@ -14,9 +14,10 @@ import com.vanne.model.DoctorUser;
 public interface DoctorDAO extends CrudRepository<DoctorUser, Long> {  
 	
 	 
-	
-	DoctorUser findByEmail(String user_email); 
-	
+	    DoctorUser findByEmail(String user_email); 
+	    Optional<DoctorUser> findByUsername(String username);
+	    Boolean existsByUsername(String username);
+	    Boolean existsByEmail(String email);
 	
 	
 }

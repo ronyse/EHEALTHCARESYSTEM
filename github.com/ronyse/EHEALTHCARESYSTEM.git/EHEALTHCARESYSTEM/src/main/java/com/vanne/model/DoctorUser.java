@@ -63,10 +63,10 @@ public class DoctorUser  extends Users
 
 	public DoctorUser(String firstname, String lastname, String gender, 
 		     String phonenumber, String address, String city,
-		     String state, String password, String email,int active,String title) {
+		     String state,String username, String password, String email,String title) {
 		super(firstname,lastname,gender, 
 			     phonenumber, address, city,
-			     state, password, email, active);
+			     state, username, password, email);
 		
 		this.title = title;
 	}

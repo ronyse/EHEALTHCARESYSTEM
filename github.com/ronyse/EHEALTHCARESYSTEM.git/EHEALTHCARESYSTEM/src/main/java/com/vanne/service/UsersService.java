@@ -25,5 +25,7 @@ public interface UsersService {
 	Users findByEmail(String user_email); 
 	
 	
+	Optional<Users> findByUsername(String username);
+	
 
 }

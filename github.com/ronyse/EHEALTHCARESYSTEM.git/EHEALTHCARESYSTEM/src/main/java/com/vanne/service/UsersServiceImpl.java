@@ -35,7 +35,8 @@ public class UsersServiceImpl implements UsersService {
 	 * user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
 	 * user.setActive(0);
 	 * 
-	 * Role userRole = roledao.findByRoleName("UNDEFINED"); user.setRoles(new
+	 * Role userRole = roledao.findByRoleName("UNDEFINED"); 
+	 * user.setRoles(new
 	 * HashSet<Role>( Arrays.asList(userRole)));
 	 * 
 	 * userdao.save(user); }
@@ -86,5 +87,14 @@ public class UsersServiceImpl implements UsersService {
 		
 		return userdao.save(user);
 	}
+
+	@Override
+	public Optional<Users> findByUsername(String username) {
+		// TODO Auto-generated method stub
+		return userdao.findByUsername(username);
+	}
+	
+	
+	
 
 }

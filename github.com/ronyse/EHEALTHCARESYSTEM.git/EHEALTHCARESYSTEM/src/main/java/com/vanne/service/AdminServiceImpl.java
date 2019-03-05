@@ -83,6 +83,12 @@ public class AdminServiceImpl implements AdminService {
 		
 		return admindao.save(admin);
 	}
+
+	@Override
+	public Optional<AdminUser> findByUsername(String username) {
+		// TODO Auto-generated method stub
+		return admindao.findByUsername(username);
+	}
 	
 	
 

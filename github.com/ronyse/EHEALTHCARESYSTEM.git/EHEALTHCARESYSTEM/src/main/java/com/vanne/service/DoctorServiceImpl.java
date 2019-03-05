@@ -99,6 +99,13 @@ public class DoctorServiceImpl implements DoctorService {
 		
 		return doctordao.save(doctor);
 	}
+
+
+	@Override
+	public Optional<DoctorUser> findByUsername(String username) {
+		// TODO Auto-generated method stub
+		return doctordao.findByUsername(username);
+	}
 	
 	
 	

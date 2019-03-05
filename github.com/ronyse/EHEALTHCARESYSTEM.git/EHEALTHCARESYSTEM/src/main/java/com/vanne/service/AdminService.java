@@ -8,6 +8,7 @@ import java.util.Optional;
 
 
 import com.vanne.model.AdminUser;
+import com.vanne.model.Users;
 
 
 public interface AdminService {
@@ -22,5 +23,7 @@ public interface AdminService {
 	Optional<AdminUser> findById(long id);             
 	
 	AdminUser update(AdminUser admin);  
+	
+	Optional<AdminUser> findByUsername(String username);
 
 }
